@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAE 1.02 | Alexis FILS-AIMÉ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+ :root {
+            --noir: #0a0a0a;
+            --bleu-fonce: #0d1b36;
+            --violet: #4a2d8a;
+            --violet-clair: #6a3dcc;
+            --orange: #e69500;
+            --blanc: #ffffff;
+            --gris: #f8f9fa;
+            --gris-fonce: #2a2a2a;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--gris);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .text-primary { color: var(--violet) !important; }
+        .text-violet { color: var(--violet) !important; }
+        .text-blue { color: var(--bleu-fonce) !important; }
+        .text-orange { color: var(--orange) !important; }
+
+        /* Navigation */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.9) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .glass-nav .navbar-nav .nav-link {
+            color: var(--gris);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        .glass-nav .navbar-nav .nav-link.active,
+        .glass-nav .navbar-nav .nav-link:hover {
+            color: white;
+        }
+
+        .glass-nav .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--violet);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bleu-fonce) 0%, var(--noir) 100%);
+            color: white;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero h1, .hero h2, .hero p {
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gradient-border {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            padding: 6px;
+            background: linear-gradient(45deg, var(--violet), var(--orange), var(--bleu-fonce));
+            background-size: 300% 300%;
+            border-radius: 50%;
+            animation: gradientBG 8s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Cards */
+        .card {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--blanc);
+            color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08) !important;
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: rgba(94, 53, 177, 0.15);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .hover-effect:hover .icon-wrapper {
+            transform: rotate(15deg) scale(1.1);
+            background: rgba(94, 53, 177, 0.2);
+        }
+
+        /* Timeline */
+        .timeline-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--violet);
+        }
+
+        .timeline-section {
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--violet);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--violet);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--orange);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: var(--blanc);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
+        }
+
+        /* Animations */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        [data-animate].animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .animate-text {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Boutons */
+        .btn-primary {
+            background-color: var(--violet);
+            border-color: var(--violet);
+            color: white !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--violet-clair);
+            border-color: var(--violet-clair);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--violet);
+            color: var(--violet);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--violet);
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary::after, .btn-outline-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-primary:hover::after, .btn-outline-primary:hover::after {
+            left: 100%;
+        }
+
+        /* Dark Mode */
+        .dark-theme {
+            background-color: var(--noir);
+            color: var(--text-light);
+        }
+
+        .dark-theme .card,
+        .dark-theme .timeline-content {
+            background-color: var(--gris-fonce);
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .dark-theme .bg-light {
+            background-color: #111 !important;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--noir);
+            color: var(--text-light);
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--violet), var(--orange));
+        }
+
+        footer .row {
+            align-items: flex-start;
+        }
+
+        footer .nav-link {
+            padding: 0.25rem 0;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+        }
+
+        footer .nav-link:hover {
+            color: white;
+            padding-left: 8px !important;
+        }
+
+        footer hr {
+            border-color: rgba(255,255,255,0.1);
+            margin: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                padding-bottom: 80px;
+            }
+            
+            .gradient-border {
+                max-width: 300px;
+                margin-top: 50px;
+            }
+
+            footer .col-lg-4 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 10px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            footer .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Navigation principale -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark glass-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="text-primary">A</span>F<span class="text-violet">.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../cv/cv.html">Mon CV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sae1.02.html">SAE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../cv/a-propos.html">À propos</a></li>
+                    <li class="nav-item ms-2">
+                        <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-circle">
+                            <i class="bi bi-moon-stars"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <main class="container py-5 mt-5">
+        <!-- Navigation entre SAE -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="p-3 sae-nav">
+                    <ul class="nav nav-pills justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="sae1.02.html">SAE 1.02</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../sae1.05/sae1.05.html">SAE 1.05</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../sae1.01/sae1.01.html">SAE 1.01</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../sae2.01/sae2.01.html">SAE 2.01</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Titre -->
+        <section class="text-center mb-5 animate-slide-up">
+            <h1 class="display-4 fw-bold">SAE 1.02</h1>
+            <p class="lead text-muted">Configuration réseau et VLANs</p>
+        </section>
+
+        <!-- Section Objectifs -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm animate-slide-up delay-1">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="card-title fw-bold mb-4">Objectifs de la SAE 1.02</h2>
+                            <p>Dans cette séquence d'activités d'évaluation (SAE), je me suis concentré sur la commutation de réseaux et la configuration de VLANs à travers plusieurs séances pratiques.</p>
+                            <p>Mon objectif est d'approfondir mes compétences dans la configuration de réseaux, de comprendre les principes de base du routage et de la commutation, tout en mettant en pratique les théories apprises lors de mes cours.</p>
+                            
+                            <div class="mt-4 network-diagram">
+                                <img src="data/img/telechargement-1.jpg" alt="Exemple de réseau" class="img-fluid w-100">
+                                <div class="p-3 text-muted text-center small">
+                                    <i class="bi bi-info-circle me-2"></i>Schéma réseau de la SAE 1.02
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Planning -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm animate-slide-up delay-2">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="fw-bold mb-4">Planning des Séances</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="h5 fw-bold text-primary mb-3">Partie Routage</h3>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Semaine 42 : Initiation à Packet Tracer
+                                            <span class="badge bg-primary rounded-pill">TD</span>
+                                        </li>
+                                        <li class="list-group-item">Semaine 43 : Séance 1 Projet - Routage</li>
+                                        <li class="list-group-item">Semaine 45 : Séance 2 Projet - Routage</li>
+                                        <li class="list-group-item">Semaine 46 : Séance 3 Projet - Routage</li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Semaine 47 : Évaluation Routage
+                                            <span class="badge bg-success rounded-pill">Éval</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="col-md-6 mt-4 mt-md-0">
+                                    <h3 class="h5 fw-bold text-primary mb-3">Partie Commutation/VLANs</h3>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Semaine 48 : Commutation et VLANs
+                                            <span class="badge bg-primary rounded-pill">TD</span>
+                                        </li>
+                                        <li class="list-group-item">Semaine 49 : Séance 1 Projet - VLANs</li>
+                                        <li class="list-group-item">Semaine 50 : Séance 2 Projet - VLANs</li>
+                                        <li class="list-group-item">Semaine 51 : Séance 3 Projet - VLANs</li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Semaine 2 : Évaluation VLANs
+                                            <span class="badge bg-success rounded-pill">Éval</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projet Commutation -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm animate-slide-up delay-3">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="fw-bold m-0">Projet de Commutation</h2>
+                                <span class="text-muted update-badge">Dernière mise à jour il y a 1 semaine</span>
+                            </div>
+                            
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="data/img/Commutation.PNG" alt="Packet Tracer" class="img-fluid rounded network-diagram mb-4 mb-md-0">
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="h5 fw-bold mb-3">Initiation à Packet Tracer</h3>
+                                    <p>Dans cette partie du projet, nous avons appris à configurer des commutateurs, des hubs, des routeurs et des PC, tout en accédant à des serveurs distants grâce à des configurations réseau adaptées.</p>
+                                    <p>Nous avons également mis en place des routes par défaut afin de garantir la connectivité entre les différents équipements du réseau.</p>
+                                    <p class="mb-0">Cette expérience m'a permis de mieux comprendre l'importance de la commutation dans un réseau et son rôle dans l'optimisation des performances réseau.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4 class="h6 fw-bold text-muted">Compétences acquises :</h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Configuration routeur</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Packet Tracer</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Routage IP</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Topologie réseau</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projet VLANs -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm animate-slide-up delay-4">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="fw-bold m-0">Projet de VLANs</h2>
+                                <span class="text-muted update-badge">Dernière mise à jour il y a 3 jours</span>
+                            </div>
+                            
+                            <div class="row align-items-center">
+                                <div class="col-md-6 order-md-2">
+                                    <img src="data/img/vlan.PNG" alt="Configuration VLAN" class="img-fluid rounded network-diagram mb-4 mb-md-0">
+                                </div>
+                                <div class="col-md-6 order-md-1">
+                                    <h3 class="h5 fw-bold mb-3">Configuration des VLANs</h3>
+                                    <p>Lors de cette phase de mon projet, j'ai appris à créer et configurer plusieurs VLANs au sein d'un même réseau. Ces VLANs ont été répartis sur plusieurs switches et routeurs afin de segmenter le réseau et d'améliorer la sécurité et les performances.</p>
+                                    <p>Nous avons utilisé des connexions filaires entre les différents équipements, et mis en œuvre des protocoles tels que SSH et Telnet pour assurer une gestion et une administration à distance efficaces des dispositifs réseau.</p>
+                                    <p class="mb-0">Cette étape m'a permis de mieux comprendre les enjeux de la virtualisation des réseaux et les différentes méthodes pour interconnecter les VLANs tout en garantissant leur isolation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4 class="h6 fw-bold text-muted">Compétences acquises :</h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Segmentation VLAN</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Sécurité réseau</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Administration SSH</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Virtualisation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Alexis FILS-AIMÉ</h3>
+                    <p>Étudiant en BUT Réseaux & Télécommunications à l'IUT1 de Grenoble.</p>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Navigation</h3>
+                    <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../cv/cv.html">Mon CV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sae1.02.html">SAE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../cv/a-propos.html">À propos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> filsaimealexis@gmail.com</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i> 06 10 92 50 52</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> Grenoble, France</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="text-center">
+                <p class="mb-0">© 2025 Alexis FILS-AIMÉ - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('[data-animate]');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.classList.add('animate');
+                    }
+                });
+            };
+
+            // Initialize animations
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Dark/Light mode toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                icon.classList.replace('bi-moon-stars', 'bi-sun');
+            }
+
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                
+                if(body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.replace('bi-moon-stars', 'bi-sun');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.replace('bi-sun', 'bi-moon-stars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

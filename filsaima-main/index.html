@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexis FILS-AIMÉ | Portfolio Étudiant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/custom.css" rel="stylesheet">
+    <style>
+        :root {
+            --noir: #0a0a0a;
+            --bleu-fonce: #0d1b36;
+            --violet: #4a2d8a;
+            --violet-clair: #6a3dcc;
+            --orange: #e69500;
+            --blanc: #ffffff;
+            --gris: #f8f9fa;
+            --gris-fonce: #2a2a2a;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--gris);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .text-primary { color: var(--violet) !important; }
+        .text-violet { color: var(--violet) !important; }
+        .text-blue { color: var(--bleu-fonce) !important; }
+        .text-orange { color: var(--orange) !important; }
+
+        /* Navigation */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.9) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .glass-nav .navbar-nav .nav-link {
+            color: var(--gris);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        .glass-nav .navbar-nav .nav-link.active,
+        .glass-nav .navbar-nav .nav-link:hover {
+            color: white;
+        }
+
+        .glass-nav .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--violet);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bleu-fonce) 0%, var(--noir) 100%);
+            color: white;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero h1, .hero h2, .hero p {
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gradient-border {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            padding: 6px;
+            background: linear-gradient(45deg, var(--violet), var(--orange), var(--bleu-fonce));
+            background-size: 300% 300%;
+            border-radius: 50%;
+            animation: gradientBG 8s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Cards */
+        .card {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--blanc);
+            color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08) !important;
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: rgba(94, 53, 177, 0.15);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .hover-effect:hover .icon-wrapper {
+            transform: rotate(15deg) scale(1.1);
+            background: rgba(94, 53, 177, 0.2);
+        }
+
+        /* Timeline */
+        .timeline-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--violet);
+        }
+
+        .timeline-section {
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--violet);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--violet);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--orange);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: var(--blanc);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
+        }
+
+        /* Animations */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        [data-animate].animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .animate-text {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Boutons */
+        .btn-primary {
+            background-color: var(--violet);
+            border-color: var(--violet);
+            color: white !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--violet-clair);
+            border-color: var(--violet-clair);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--violet);
+            color: var(--violet);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--violet);
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary::after, .btn-outline-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-primary:hover::after, .btn-outline-primary:hover::after {
+            left: 100%;
+        }
+
+        /* Dark Mode */
+        .dark-theme {
+            background-color: var(--noir);
+            color: var(--text-light);
+        }
+
+        .dark-theme .card,
+        .dark-theme .timeline-content {
+            background-color: var(--gris-fonce);
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .dark-theme .bg-light {
+            background-color: #111 !important;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--noir);
+            color: var(--text-light);
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--violet), var(--orange));
+        }
+
+        footer .row {
+            align-items: flex-start;
+        }
+
+        footer .nav-link {
+            padding: 0.25rem 0;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+        }
+
+        footer .nav-link:hover {
+            color: white;
+            padding-left: 8px !important;
+        }
+
+        footer hr {
+            border-color: rgba(255,255,255,0.1);
+            margin: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                padding-bottom: 80px;
+            }
+            
+            .gradient-border {
+                max-width: 300px;
+                margin-top: 50px;
+            }
+
+            footer .col-lg-4 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 10px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            footer .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark glass-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="text-primary">A</span>F<span class="text-violet">.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv/cv.html">Mon CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="saes/sae1.02/sae1.02.html">SAE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv/a-propos.html">À propos</a></li>
+                    <li class="nav-item ms-2">
+                        <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-circle">
+                            <i class="bi bi-moon-stars"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pe-5">
+                    <h1 class="display-3 fw-bold mb-3 animate-slide-up">Alexis <span class="text-primary">FILS-AIMÉ</span></h1>
+                    <h2 class="h4 text-muted mb-4 animate-slide-up delay-1">
+                        Étudiant en <span class="text-violet">BUT Réseaux & Télécommunications</span>
+                    </h2>
+                    <p class="lead mb-4 animate-slide-up delay-2 animate-text" style="animation-delay: 0.3s;">
+                        Passionné par les infrastructures réseau, le développement web et l'innovation technologique.
+                        Je combine compétences techniques et sens créatif pour proposer des solutions optimales.
+                    </p>
+                    <div class="d-flex gap-3 animate-slide-up delay-3">
+                        <a href="cv/cv.html" class="btn btn-primary btn-lg px-4">
+                            <i class="bi bi-file-earmark-person me-2"></i>Voir mon CV
+                        </a>
+                        <a href="#competences" class="btn btn-outline-primary btn-lg px-4">
+                            <i class="bi bi-gear me-2"></i>Mes compétences
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate-slide-up delay-4">
+                    <div class="gradient-border p-2 rounded-circle mx-auto">
+                        <img src="data/img/alexislemagnifique-Photoroom.jpeg" alt="Alexis FILS-AIMÉ" 
+                             class="img-fluid rounded-circle w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#competences">
+                <i class="bi bi-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Compétences Section -->
+    <section id="competences" class="py-5" style="background-color: var(--gris);">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 display-5 fw-bold">Compétences <span class="text-primary">Techniques</span></h2>
+            
+            <div class="row g-4">
+                <!-- Développement Web -->
+                <div class="col-md-6 col-lg-3" data-animate>
+                    <div class="card h-100 border-0 shadow-sm hover-effect animate-text" style="animation-delay: 0.2s;">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-3">
+                                <i class="bi bi-code-slash text-violet fs-1"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">Développement Web</h3>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> HTML/CSS</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> JavaScript</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Python</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> SQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Réseaux -->
+                <div class="col-md-6 col-lg-3" data-animate>
+                    <div class="card h-100 border-0 shadow-sm hover-effect animate-text" style="animation-delay: 0.3s;">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-3">
+                                <i class="bi bi-router text-primary fs-1"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">Réseaux</h3>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> VLANs</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Routage</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Packet Tracer</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Téléphonie IP</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Autres Compétences -->
+                <div class="col-md-6 col-lg-3" data-animate>
+                    <div class="card h-100 border-0 shadow-sm hover-effect animate-text" style="animation-delay: 0.4s;">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-3">
+                                <i class="bi bi-pencil-square text-orange fs-1"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">Copywriting</h3>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Rédaction SEO</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Création de formations</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Stratégie marketing</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Gestion de projets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Langues -->
+                <div class="col-md-6 col-lg-3" data-animate>
+                    <div class="card h-100 border-0 shadow-sm hover-effect animate-text" style="animation-delay: 0.5s;">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper mb-3">
+                                <i class="bi bi-globe2 text-blue fs-1"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">Langues</h3>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Français - Natif</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Anglais - B2</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Espagnol - B1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expériences -->
+    <section id="experiences" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 display-5 fw-bold">Mon <span class="text-primary">Parcours</span></h2>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline">
+                    <!-- Formation -->
+                    <div class="timeline-section" data-animate>
+                        <h3 class="timeline-title">Formation</h3>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024 - Aujourd'hui</div>
+                            <div class="timeline-content">
+                                <h4>BUT Réseaux & Télécommunications</h4>
+                                <p class="text-muted">IUT1 de Grenoble</p>
+                                <p>Spécialités : Configuration réseau, Virtualisation, Cybersécurité</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Juin 2024</div>
+                            <div class="timeline-content">
+                                <h4>Baccalauréat Général - Mention Bien</h4>
+                                <p class="text-muted">Lycée du Dauphiné</p>
+                                <p>Spécialités : Mathématiques, NSI (Numérique et Sciences Informatiques)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Expérience Pro -->
+                    <div class="timeline-section" data-animate>
+                        <h3 class="timeline-title">Expérience Professionnelle</h3>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Nov 2023 - 6 mois</div>
+                            <div class="timeline-content">
+                                <h4>Copywriter Freelance</h4>
+                                <p class="text-muted">FILS-AIMÉ Alexis, Jaillans</p>
+                                <ul>
+                                    <li>Rédaction de contenus marketing</li>
+                                    <li>Création de campagnes publicitaires</li>
+                                    <li>Collaboration avec équipes créatives</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mars 2024 - 5 jours</div>
+                            <div class="timeline-content">
+                                <h4>Formateur en Copywriting</h4>
+                                <p>Animation de sessions de formation pour adultes en reconversion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Alexis FILS-AIMÉ</h3>
+                    <p>Étudiant en réseaux et télécommunications passionné par les nouvelles technologies et le développement web.</p>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Navigation</h3>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="index.html" class="nav-link ps-0">Accueil</a></li>
+                        <li class="nav-item"><a href="cv/cv.html" class="nav-link ps-0">Mon CV</a></li>
+                        <li class="nav-item"><a href="saes/sae1.02/sae1.02.html" class="nav-link ps-0">SAE</a></li>
+                        <li class="nav-item"><a href="cv/a-propos.html" class="nav-link ps-0">À propos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> filsaimealexis@gmail.com</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i> 06 10 92 50 52</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> Grenoble, France</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="text-center">
+                <p class="mb-0">© 2025 Alexis FILS-AIMÉ - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('[data-animate]');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.classList.add('animate');
+                    }
+                });
+            };
+
+            // Text elements animation
+            const animateTextElements = () => {
+                const textElements = document.querySelectorAll('.animate-text');
+                textElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = 1;
+                        el.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            };
+
+            // Initialize animations
+            animateOnScroll();
+            animateTextElements();
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Dark/Light mode toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                icon.classList.replace('bi-moon-stars', 'bi-sun');
+            }
+
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                
+                if(body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.replace('bi-moon-stars', 'bi-sun');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.replace('bi-sun', 'bi-moon-stars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

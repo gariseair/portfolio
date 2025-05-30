@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV - Alexis FILS-AIMÉ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e35b1;
+            --primary-light: #7c4dff;
+            --primary-dark: #4527a0;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f5f5f7;
+        }
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .text-primary { color: var(--primary) !important; }
+        .bg-primary { background-color: var(--primary) !important; }
+        
+        /* Navigation améliorée */
+        .glass-nav {
+            background: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+        
+        /* En-tête CV avec effet parallaxe */
+        .cv-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cv-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.6;
+        }
+        
+        .cv-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Sections CV avec effet glassmorphisme */
+        .cv-section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cv-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Barres de progression stylisées */
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            background-color: rgba(94, 53, 177, 0.1);
+        }
+        
+        .progress-bar.bg-tech {
+            background-color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar.bg-tech::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Timeline améliorée */
+        .timeline-2 {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-2::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+        }
+        
+        .timeline-2 .card {
+            position: relative;
+            margin-bottom: 2rem;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-2 .card:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-2 .card::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 1rem;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(94, 53, 177, 0.3);
+            z-index: 2;
+        }
+        
+        .timeline-2 .card::after {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 1.6rem;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(94, 53, 177, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+        
+        /* Langues avec indicateurs circulaires animés */
+        .language-skills {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .language-circle {
+            width: 140px;
+            height: 140px;
+            margin: 1rem;
+            position: relative;
+        }
+        
+        .language-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+        
+        .language-circle circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+        
+        .language-circle .bg-circle {
+            stroke: rgba(94, 53, 177, 0.1);
+        }
+        
+        .language-circle .progress-circle {
+            stroke: var(--primary);
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            animation: circleFill 1.5s ease-out forwards;
+        }
+        
+        @keyframes circleFill {
+            to { stroke-dashoffset: calc(440 - (440 * var(--percentage)) / 100); }
+        }
+        
+        .language-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        /* Section atouts avec icônes animées */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(94, 53, 177, 0.15);
+        }
+        
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(94, 53, 177, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.75rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        /* Carousel business amélioré */
+        .business-carousel {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-item {
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .carousel-content {
+            padding: 3rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .carousel-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        /* Bouton téléchargement */
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(94, 53, 177, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94, 53, 177, 0.4);
+            color: white;
+        }
+        
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .btn-download:hover::after {
+            left: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Effet de flottement */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark glass-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-primary">A</span>F<span class="text-violet">.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cv.html">Mon CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../saes/sae1.02/sae1.02.html">SAE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="a-propos.html">À propos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête CV -->
+    <header class="cv-header">
+        <div class="container text-center cv-header-content floating">
+            <h1 class="display-3 fw-bold mb-3">Alexis FILS-AIMÉ</h1>
+            <p class="lead fs-4">Étudiant en Réseaux & Télécommunications</p>
+            <div class="mt-4">
+                <a href="#contact" class="btn btn-outline-light btn-lg px-4 me-2">
+                    <i class="bi bi-envelope me-1"></i> Contact
+                </a>
+                <a href="#competences" class="btn btn-light btn-lg px-4">
+                    <i class="bi bi-gear me-1"></i> Compétences
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu Principal -->
+    <main class="container mt-5">
+        <!-- Section Formation -->
+        <section class="cv-section animate delay-1" id="formation">
+            <h2 class="fw-bold mb-4 text-primary">Formation</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-book fs-4"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">BUT Réseaux et Télécommunications</h5>
+                            <p class="mb-1">IUT1 de Grenoble</p>
+                            <p class="text-muted small"><i class="bi bi-calendar me-1"></i> Septembre 2024 - Aujourd'hui</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-mortarboard fs-4"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Baccalauréat général, Mention Bien</h5>
+                            <p class="mb-1">Lycée du Dauphiné</p>
+                            <p class="text-muted small"><i class="bi bi-calendar me-1"></i> Juin 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h5 class="fw-bold">Spécialités :</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary text-white py-2 px-3">Mathématiques</span>
+                    <span class="badge bg-primary text-white py-2 px-3">NSI (Numérique et Sciences Informatiques)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Compétences Techniques -->
+        <section class="cv-section animate delay-2" id="competences">
+            <h2 class="fw-bold mb-4 text-primary">Compétences Techniques</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">HTML</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">90%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">CSS</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">85%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">JavaScript</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">70%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">SQL</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">80%</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">Python</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">75%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">Bash</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">60%</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">Virtualisation</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">80%</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2 fw-bold" style="min-width: 120px;">Service Réseaux</span>
+                        <div class="progress flex-grow-1">
+                            <div class="progress-bar bg-tech" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="ms-2 text-primary fw-bold">70%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Expérience Professionnelle -->
+        <section class="cv-section animate delay-3" id="experience">
+            <h2 class="fw-bold mb-4 text-primary">Expérience Professionnelle</h2>
+            
+            <div class="timeline-2">
+                <!-- Expérience 1 -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="card-title fw-bold m-0">Copywriter - FILS-AIMÉ Alexis</h4>
+                            <span class="badge bg-primary rounded-pill">6 mois</span>
+                        </div>
+                        <p class="text-muted mb-3"><i class="bi bi-calendar me-2"></i>Novembre 2023 - Avril 2024 | Jaillans</p>
+                        <ul class="fa-ul">
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Rédaction de contenus marketing pour promouvoir les produits et services
+                            </li>
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Création de slogans et accroches publicitaires
+                            </li>
+                            <li>
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Collaboration avec l'équipe créative pour des campagnes publicitaires
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Expérience 2 -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="card-title fw-bold m-0">Formateur en Copywriting</h4>
+                            <span class="badge bg-primary rounded-pill">5 jours</span>
+                        </div>
+                        <p class="text-muted mb-3"><i class="bi bi-calendar me-2"></i>Mars 2024</p>
+                        <ul class="fa-ul">
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Animation de sessions de formation en copywriting
+                            </li>
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Développement de modules pédagogiques
+                            </li>
+                            <li>
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Accompagnement individualisé des stagiaires
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Expérience 3 -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="card-title fw-bold m-0">Job d'été en aire d'autoroute</h4>
+                            <span class="badge bg-primary rounded-pill">1 mois</span>
+                        </div>
+                        <p class="text-muted mb-3"><i class="bi bi-calendar me-2"></i>Juin 2022 | Hostun</p>
+                        <ul class="fa-ul">
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Gestion de la caisse et des transactions
+                            </li>
+                            <li>
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Préparation des plats et des snacks pour la vente
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Expérience 4 -->
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="card-title fw-bold m-0">Garde d'enfants</h4>
+                            <span class="badge bg-primary rounded-pill">5 jours</span>
+                        </div>
+                        <p class="text-muted mb-3"><i class="bi bi-calendar me-2"></i>Juin 2022 | Lyon</p>
+                        <ul class="fa-ul">
+                            <li class="mb-2">
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Surveillance et activités ludiques avec des enfants
+                            </li>
+                            <li>
+                                <span class="fa-li text-primary"><i class="bi bi-check-circle"></i></span>
+                                Préparation des repas et aide à l'hygiène
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Langues -->
+        <section class="cv-section animate delay-4" id="langues">
+            <h2 class="fw-bold mb-4 text-primary text-center">Langues</h2>
+            <div class="row language-skills">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="language-circle">
+                        <svg viewBox="0 0 160 160">
+                            <circle class="bg-circle" cx="80" cy="80" r="70" />
+                            <circle class="progress-circle" cx="80" cy="80" r="70" style="--percentage: 100" />
+                        </svg>
+                        <div class="language-info">
+                            <h5 class="fw-bold mb-1">Français</h5>
+                            <p class="text-muted m-0">Natif</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="language-circle">
+                        <svg viewBox="0 0 160 160">
+                            <circle class="bg-circle" cx="80" cy="80" r="70" />
+                            <circle class="progress-circle" cx="80" cy="80" r="70" style="--percentage: 75" />
+                        </svg>
+                        <div class="language-info">
+                            <h5 class="fw-bold mb-1">Anglais</h5>
+                            <p class="text-muted m-0">Niveau B2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="language-circle">
+                        <svg viewBox="0 0 160 160">
+                            <circle class="bg-circle" cx="80" cy="80" r="70" />
+                            <circle class="progress-circle" cx="80" cy="80" r="70" style="--percentage: 60" />
+                        </svg>
+                        <div class="language-info">
+                            <h5 class="fw-bold mb-1">Espagnol</h5>
+                            <p class="text-muted m-0">Niveau B1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Business -->
+        <section class="cv-section animate" id="business">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-content text-center">
+                        <i class="bi bi-graph-up-arrow display-4 mb-4"></i>
+                        <h3 class="display-6 fw-bold mb-3">Business</h3>
+                        <p class="lead mb-4">Spécialisé dans la vente de formations en ligne, avec une expertise en trading et en investissement à long terme, j'ai généré un revenu de plus de 5000€.</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <span class="badge bg-white text-primary py-2 px-3">Formations en ligne</span>
+                            <span class="badge bg-white text-primary py-2 px-3">Trading</span>
+                            <span class="badge bg-white text-primary py-2 px-3">Investissement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Atouts -->
+        <section class="cv-section animate" id="atouts">
+            <h2 class="fw-bold mb-4 text-primary">Atouts</h2>
+            <div class="skills-list">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        🚀
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Apprentissage rapide</h5>
+                        <p class="m-0 text-muted">Autodidacte avec une capacité à apprendre rapidement</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        📈
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Marketing digital</h5>
+                        <p class="m-0 text-muted">Compétences en marketing digital et copywriting</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        🤝
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Relation client</h5>
+                        <p class="m-0 text-muted">Gestion de la relation client et organisation</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        🎓
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Formation</h5>
+                        <p class="m-0 text-muted">Création et animation de formations adaptées</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        💻
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Technologie</h5>
+                        <p class="m-0 text-muted">Compétences en cybersécurité et développement web</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section Coordonnées -->
+        <section class="cv-section animate-slide-up" id="contact">
+            <h2 class="fw-bold mb-4">Coordonnées</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-person-fill me-2 text-primary"></i> Alexis FILS-AIMÉ</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt-fill me-2 text-primary"></i> 13, rue Colonel Manhés, 38400 Grenoble</li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill me-2 text-primary"></i> filsaimealexis@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-phone-fill me-2 text-primary"></i> 06 10 92 50 52</li>
+                        <li class="mb-3"><i class="bi bi-calendar-fill me-2 text-primary"></i> 18 ans</li>
+                        <li><i class="bi bi-car-front-fill me-2 text-primary"></i> Permis B (non véhiculé)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bouton Téléchargement -->
+        <div class="text-center mt-4">
+            <a href="../data/download/SAE104__FILS-AIME_CV.odt" class="btn btn-download">
+                <i class="bi bi-download me-2"></i>Télécharger mon CV
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <p class="m-0">© 2025 Alexis FILS-AIMÉ - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = () => {
+                const elements = document.querySelectorAll('.animate-slide-up');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initialisation
+            const animatedElements = document.querySelectorAll('.animate-slide-up');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease-out';
+            });
+            
+            // Délais pour les animations
+            document.querySelector('.delay-1').style.transitionDelay = '0.2s';
+            document.querySelector('.delay-2').style.transitionDelay = '0.4s';
+            document.querySelector('.delay-3').style.transitionDelay = '0.6s';
+            document.querySelector('.delay-4').style.transitionDelay = '0.8s';
+            
+            // Écouteur de scroll
+            window.addEventListener('scroll', animateElements);
+            animateElements(); // Appel initial
+        });
+    </script>
+</body>
+</html>
