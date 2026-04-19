@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 1.02 : Architecture Réseau | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="../index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="../index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="../projets.html" class="text-accent-violet">Projets</a>
+            <a href="../cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+            <a href="../filsaima-main/cv/a-propos.html" class="hover:text-accent-violet transition-colors">À propos</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Project Hero -->
+            <section class="relative min-h-[80vh] flex flex-col justify-center px-8 md:px-24">
+                <div class="absolute inset-0 z-0">
+                    <img src="../public/img/projects/vlan.PNG" class="w-full h-full object-cover opacity-20 grayscale" alt="SAE 1.02 Background">
+                    <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+                </div>
+                
+                <div class="relative z-10 space-y-8 max-w-4xl">
+                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-violet font-black">SAÉ 1.02 • Réseaux & Télécoms</span>
+                    <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter leading-none">Architecture <br><span class="text-accent-violet font-signature text-5xl md:text-[120px] not-italic">VLAN</span> & Routage</h1>
+                    <div class="flex gap-12 text-[10px] uppercase tracking-widest font-bold text-white/40">
+                        <div><p class="mb-2 text-white/20">Année</p><p>2024</p></div>
+                        <div><p class="mb-2 text-white/20">Rôle</p><p>Administrateur Réseau</p></div>
+                        <div><p class="mb-2 text-white/20">Outils</p><p>Cisco • Packet Tracer</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Content -->
+            <section class="max-w-7xl mx-auto px-8 py-32 grid md:grid-cols-3 gap-24">
+                <div class="md:col-span-2 space-y-16">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Le <span class="text-white/30">Contexte</span></h2>
+                        <p class="text-xl text-white/60 leading-relaxed font-light">
+                            Ce projet consistait à modéliser et configurer l'infrastructure réseau d'une infrastructure d'entreprise distribuée. L'objectif principal était de garantir l'isolation des différents départements (RH, IT, Marketing) tout en permettant une communication inter-VLAN sécurisée.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Challenge</h3>
+                            <p class="text-white/70 font-light">Gérer la saturation du trafic broadcast et assurer la redondance des liens sans créer de boucles (Spanning Tree).</p>
+                        </div>
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Solution</h3>
+                            <p class="text-white/70 font-light">Mise en place de VTP pour la synchronisation, agrégation de liens (EtherChannel) et routage intervlan sur routeur Cisco.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-12">
+                         <h2 class="text-4xl font-light italic">Mise en <span class="text-white/30">Œuvre</span></h2>
+                         <img src="../public/img/projects/Commutation.PNG" class="w-full rounded-[40px] border border-white/5 opacity-80" alt="Schema Commutation">
+                         <p class="text-white/50 italic text-sm text-center">Topologie logique de la commutation et du plan d'adressage IP.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="sticky top-32 space-y-12">
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Livrables</h3>
+                            <ul class="space-y-4 text-sm text-white/40 font-light tracking-wide">
+                                <li>• Schémas de topologie</li>
+                                <li>• Table d'adressage VLSM</li>
+                                <li>• Config Switch/Routeur</li>
+                                <li>• Rapport de tests PING/TRACERT</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Résultats</h3>
+                            <p class="text-3xl font-black italic">+100% <br><span class="text-sm font-normal text-white/30 not-italic uppercase tracking-widest">Connectivité validée</span></p>
+                        </div>
+
+                        <div class="pt-12">
+                            <a href="../projets.html" class="flex items-center gap-4 group">
+                                <span class="w-8 h-[1px] bg-white group-hover:w-12 transition-all"></span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-bold">Retour aux projets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Project Footer -->
+            <section class="py-32 px-8 border-t border-white/5 flex flex-col items-center text-center">
+                <span class="text-[10px] uppercase tracking-widest text-white/30 mb-8">Projet Suivant</span>
+                <a href="sae-201.html" class="group">
+                    <h2 class="text-5xl md:text-8xl font-black italic tracking-tighter group-hover:text-accent-violet transition-colors">Services Cloud <span class="text-white/20">& Virtualisation</span></h2>
+                </a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-12 border-t border-white/5 relative bg-dark">
+                <div class="max-w-[1600px] mx-auto px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="text-[10px] text-white/30 uppercase tracking-[0.4em] font-mono">
+                            Based in Grenoble, FR <br>
+                            Available Worldwide
+                        </div>
+                        
+                        <div class="flex gap-12">
+                            <a href="mailto:filsaimealexis@gmail.com" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">Contact</a>
+                            <a href="https://linkedin.com" target="_blank" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">LinkedIn</a>
+                            <a href="https://github.com" target="_blank" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">GitHub</a>
+                        </div>
+                        
+                        <div class="text-[10px] text-white/20 uppercase tracking-widest font-mono text-right">
+                            © 2026 ALEXIS FILS-AIMÉ <br>
+                            SYSTEM STATUS: ONLINE
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="../src/js/main.js"></script>
+</body>
+</html>
