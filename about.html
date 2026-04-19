@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="projets.html" class="hover:text-accent-violet transition-colors">Projets</a>
+            <a href="cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+            <a href="about.html" class="text-accent-violet">À propos</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero About -->
+            <section class="relative pt-48 pb-32 px-8 flex flex-col items-center text-center">
+                <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-8 leading-none">
+                    L'ART DE LA <br><span class="text-accent-violet font-signature text-7xl md:text-[150px] not-italic">Persuasion</span>
+                </h1>
+                <p class="text-2xl text-white/40 max-w-3xl font-light italic">
+                    "Transformer des mots en résultats concrets et en expériences mémorables."
+                </p>
+            </section>
+
+             <!-- Grid Content -->
+             <section class="max-w-7xl mx-auto px-8 py-32 grid md:grid-cols-2 gap-24 items-center">
+                 <div class="space-y-12">
+                     <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Mon Background</h2>
+                     <h3 class="text-5xl font-light italic leading-tight">Copywriting <br>& <span class="text-white/20">Digital Stratégie</span></h3>
+                     <p class="text-xl text-white/50 leading-relaxed font-light">
+                        Depuis 2023, j'explore les mécaniques de la vente par l'écrit. Mon parcours en freelance m'a permis de comprendre comment captiver une audience et convertir l'attention en action.
+                     </p>
+                 </div>
+                 <div class="glass-card p-12 rounded-[60px] space-y-12 border-l-8 border-accent-violet">
+                     <h4 class="text-3xl font-black italic tracking-tighter">Impact Formation</h4>
+                     <p class="text-white/40 font-light">
+                        En mars 2024, j'ai conçu et animé une formation intensive de 5 jours pour un groupe d'adultes en reconversion. 
+                     </p>
+                     <ul class="space-y-4 text-sm text-accent-violet tracking-widest uppercase font-bold">
+                        <li>• Architecture Pédagogique</li>
+                        <li>• Coaching Personnalisé</li>
+                        <li>• Dynamique de Groupe</li>
+                        <li>• Stratégie SEO-Copy</li>
+                     </ul>
+                 </div>
+             </section>
+
+             <!-- Values Section -->
+             <section class="py-32 px-8 bg-[#070707] border-y border-white/5">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+                    <div class="space-y-4">
+                        <span class="text-4xl">🎯</span>
+                        <h4 class="font-bold tracking-widest uppercase text-sm">Précision</h4>
+                        <p class="text-white/30 text-xs">Chaque mot, chaque octet a un but précis dans une infrastructure ou une campagne.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-4xl">⚡</span>
+                        <h4 class="font-bold tracking-widest uppercase text-sm">Réactivité</h4>
+                        <p class="text-white/30 text-xs">Capacité à s'adapter et à résoudre des problématiques complexes en temps réel.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-4xl">💎</span>
+                        <h4 class="font-bold tracking-widest uppercase text-sm">Excellence</h4>
+                        <p class="text-white/30 text-xs">Une recherche constante de la qualité, du code source au discours marketing.</p>
+                    </div>
+                </div>
+             </section>
+
+             <!-- Footer -->
+             <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-2 text-center md:text-left">
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
+                        <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center md:text-right">
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
+                        <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] uppercase tracking-[0.4em] text-white/20">
+                    <p>© 2026 ALEXIS FILS-AIMÉ</p>
+                    <div class="flex gap-8 font-black">
+                        <a href="https://www.linkedin.com/in/alexis-filsaime" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/alexisfilsaime" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>
