@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEXIS FILS-AIMÉ | Portfolio Expérientiel</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050505',
+                        accent: {
+                            gold: '#D4AF37',
+                            violet: '#6a3dcc',
+                            orange: '#e69500'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        signature: ['Pinyon Script', 'cursive'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .vertical-text { writing-mode: vertical-rl; }
+        .hero-bg-text { pointer-events: none; }
+        .reveal-text { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        ::selection { background: #6a3dcc; color: white; }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Custom Cursor -->
+    <div id="cursor" class="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block opacity-0"></div>
+    <div id="cursor-follower" class="fixed top-0 left-0 w-10 h-10 border border-white/20 rounded-full pointer-events-none z-[9998] transition-transform duration-300 hidden md:block opacity-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter opacity-0" id="nav-logo">
+            Alexis <span class="text-accent-violet">Fils-Aimé</span>.
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold opacity-0" id="nav-links">
+            <a href="index.html" class="text-accent-violet">Accueil</a>
+            <a href="projets.html" class="hover:text-accent-violet transition-colors">Projets</a>
+            <a href="cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+            <a href="about.html" class="hover:text-accent-violet transition-colors">À propos</a>
+        </div>
+        <div class="opacity-0" id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero Section -->
+            <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+                <!-- Parallax Text Background -->
+                <div class="hero-bg-text absolute inset-0 flex items-center justify-center z-0">
+                    <h1 class="hero-bg-title text-[30vw] md:text-[25vw] font-black text-white/[0.03] leading-none uppercase tracking-tighter mix-blend-overlay">
+                        ALEXIS
+                    </h1>
+                </div>
+
+                <!-- Signature Text -->
+                <div class="hero-signature absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                    <span class="text-6xl md:text-9xl font-signature text-white/95 translate-y-[35%] translate-x-[5%] opacity-0" id="hero-signature-text">
+                        Alexis Fils-Aimé
+                    </span>
+                </div>
+
+                <!-- Portrait Container (Full Screen Background) -->
+                <div class="hero-portrait absolute inset-[-5%] z-10 w-[110%] h-[110%] flex items-center justify-center opacity-0" id="hero-portrait">
+                    <div class="relative w-full h-full">
+                        <!-- Background Glow behind portrait -->
+                        <div class="absolute inset-0 bg-accent-violet/10 blur-[150px] rounded-full animate-pulse-slow scale-150"></div>
+                        <img src="./src/assets/hero-portrait.png" alt="Alexis" class="w-full h-full object-cover object-top relative z-10 filter contrast-[1.1] brightness-[0.8] grayscale">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-80"></div>
+                    </div>
+                </div>
+
+                <!-- Hero Footer Info -->
+                <div class="absolute bottom-12 left-8 md:flex gap-16 items-end z-30 hidden">
+                    <div class="opacity-0 translate-y-8 hero-info-item">
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-white/40 mb-2">Based in</p>
+                        <p class="text-sm font-semibold italic">Grenoble, FR</p>
+                    </div>
+                    <div class="opacity-0 translate-y-8 hero-info-item">
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-white/40 mb-2">Specialization</p>
+                        <p class="text-sm font-semibold italic">BUT Réseaux & Télécommunications</p>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-12 right-24 hidden md:block opacity-0" id="hero-scroll">
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="w-[1px] h-20 bg-gradient-to-b from-white/60 to-transparent"></div>
+                        <p class="text-[10px] uppercase tracking-[0.4em] vertical-text">Scroll to explore</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Projects Horizontal Slider (GSAP) -->
+            <section id="projects-slider" class="py-32 bg-dark overflow-hidden">
+                <div class="px-8 mb-16">
+                    <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black mb-4">Pipeline Projets</h2>
+                    <h3 class="text-5xl font-light italic">Réalisations <span class="text-white/20">Scolaires & Perso</span></h3>
+                </div>
+                
+                <div class="projects-container flex gap-12 px-8 pb-12 overflow-visible no-scrollbar" id="slider-inner" style="width: max-content; transition: none;">
+                    <!-- Project 1 (SAE 1.01) -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative flex items-center justify-center bg-accent-violet/5">
+                             <div class="text-[60px] font-black opacity-10 text-center px-4 leading-none uppercase">R&T <br><span class="text-accent-violet">Starter</span></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Introduction R&T</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.01 : Découverte Réseaux</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Fondamentaux des architectures réseaux et premiers pas dans l'administration système.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (SAE 1.02) -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative">
+                            <img src="./public/img/projects/vlan.PNG" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="SAE 1.02">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Réseaux & Télécoms</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.02 : Segmentation VLAN</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Configuration de commutateurs et routeurs pour isoler les flux et sécuriser l'infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (SAE 2.01) -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative">
+                            <img src="./public/img/projects/Topologie-du-reseau-OpenStack-Dashboard-1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="SAE 2.01">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Cloud & Services</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 2.01 : Déploiement Infra</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Mise en place d'un environnement virtualisé avec services réseaux haute disponibilité.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 (SAE 1.05) -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative flex items-center justify-center bg-accent-violet/5">
+                             <div class="text-[100px] font-black opacity-10 uppercase tracking-tighter">PYTHON</div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Développement Python</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.05 : Outils Analyste</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Automatisation de traitements de données et scripts de gestion réseau.</p>
+                        </div>
+                    </div>
+
+                    <!-- CLONED FOR INFINITE LOOP EFFECT -->
+
+                    <!-- Project 1 (SAE 1.01) CLONE -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative flex items-center justify-center bg-accent-violet/5">
+                             <div class="text-[60px] font-black opacity-10 text-center px-4 leading-none uppercase">R&T <br><span class="text-accent-violet">Starter</span></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Introduction R&T</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.01 : Découverte Réseaux</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Fondamentaux des architectures réseaux et premiers pas dans l'administration système.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (SAE 1.02) CLONE -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative">
+                            <img src="./public/img/projects/vlan.PNG" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="SAE 1.02">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Réseaux & Télécoms</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.02 : Segmentation VLAN</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Configuration de commutateurs et routeurs pour isoler les flux et sécuriser l'infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (SAE 2.01) CLONE -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative">
+                            <img src="./public/img/projects/Topologie-du-reseau-OpenStack-Dashboard-1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt="SAE 2.01">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Cloud & Services</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 2.01 : Déploiement Infra</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Mise en place d'un environnement virtualisé avec services réseaux haute disponibilité.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 (SAE 1.05) CLONE -->
+                    <div class="project-card flex-shrink-0 w-[450px] aspect-[4/5] bg-white/[0.02] border border-white/5 rounded-3xl p-4 overflow-hidden group">
+                        <div class="w-full h-[70%] rounded-2xl overflow-hidden mb-8 relative flex items-center justify-center bg-accent-violet/5">
+                             <div class="text-[100px] font-black opacity-10 uppercase tracking-tighter">PYTHON</div>
+                        </div>
+                        <div class="px-4 space-y-2">
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">Développement Python</span>
+                            <h4 class="text-2xl font-semibold italic">SAÉ 1.05 : Outils Analyste</h4>
+                            <p class="text-white/30 text-sm line-clamp-2">Automatisation de traitements de données et scripts de gestion réseau.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Technical Expertise (MASSIVE COMMAND CENTER) -->
+            <section id="skills" class="min-h-screen py-24 px-8 bg-dark relative overflow-hidden">
+                <!-- Data Flows Background -->
+                <div class="absolute inset-0 opacity-5 pointer-events-none">
+                    <div class="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-accent-violet to-transparent"></div>
+                    <div class="absolute top-0 left-2/4 w-[1px] h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
+                    <div class="absolute top-0 left-3/4 w-[1px] h-full bg-gradient-to-b from-transparent via-accent-violet to-transparent"></div>
+                </div>
+
+                <div class="max-w-[1600px] mx-auto z-10 relative">
+                    <!-- Title Bar -->
+                    <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-b border-white/5 pb-12">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 text-accent-violet">
+                                <span class="w-12 h-[1px] bg-accent-violet"></span>
+                                <h2 class="text-[10px] uppercase tracking-[1em] font-black">Command Center</h2>
+                            </div>
+                            <h3 class="text-6xl md:text-[110px] font-light tracking-tighter leading-none">L'ARSENAL <br><span class="text-white/20 italic font-signature">Technique</span>.</h3>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-12 font-mono text-[8px] text-white/20 uppercase tracking-[0.5em]">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500/50 animate-pulse"></span>
+                                SYSTEM_READY
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-accent-violet animate-pulse"></span>
+                                NETWORK_ACTIVE
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                        
+                        <!-- COLUMN 1: NETWORKS & SECURITY (The Core) -->
+                        <div class="bg-white/[0.02] border border-white/5 rounded-[32px] p-8 md:p-12 space-y-8 backdrop-blur-md group hover:border-accent-violet/30 transition-colors">
+                            <div class="flex justify-between items-center text-accent-violet">
+                                <h4 class="text-base font-black uppercase tracking-widest">Network Architecture</h4>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div class="space-y-8">
+                                <div>
+                                    <p class="text-sm text-white/30 uppercase mb-4">Protocoles de Routage</p>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5 text-white/70">IPv6 / IPv4</span>
+                                        <span class="px-4 py-2 bg-accent-violet/10 rounded text-sm font-bold border border-accent-violet/20 text-accent-violet">OSPF</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">QoS</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">SD-WAN</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white/30 uppercase mb-4">Services & Sécurité</p>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">VoIP (Asterisk)</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">VPN / Firewall</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">802.1X</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">Triple Play</span>
+                                    </div>
+                                </div>
+                                <div class="pt-6 border-t border-white/5">
+                                    <p class="text-sm text-white/20 uppercase mb-4">Bas Niveau</p>
+                                    <p class="text-base text-white/50 leading-relaxed font-mono">CIDR, ARP, ICMP, ACL, iptables, Proxy HTTP</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COLUMN 2: DEVELOPMENT & LOGICIEL (The Engine) -->
+                        <div class="bg-white/[0.02] border border-white/5 rounded-[32px] p-8 md:p-12 space-y-8 backdrop-blur-md group hover:border-white/20 transition-colors">
+                            <div class="flex justify-between items-center text-white/50">
+                                <h4 class="text-base font-black uppercase tracking-widest text-white/80">Software Engine</h4>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+                            <div class="space-y-8">
+                                <div>
+                                    <p class="text-sm text-white/30 uppercase mb-4 text-right">Frontend Stack</p>
+                                    <div class="flex flex-wrap justify-end gap-3">
+                                        <span class="px-4 py-2 bg-white/10 rounded text-sm font-black text-white italic">TypeScript</span>
+                                        <span class="px-4 py-2 bg-accent-violet/20 rounded text-sm font-black text-accent-violet">Next.js</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">React</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">Tailwind CSS</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white/30 uppercase mb-4 text-right">Logiciel & Backend</p>
+                                    <div class="flex flex-wrap justify-end gap-3">
+                                        <span class="px-4 py-2 bg-white/10 rounded text-sm font-black text-white italic">Python</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">Java / JavaFX</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">Flask</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">NATS</span>
+                                    </div>
+                                </div>
+                                <div class="pt-6 border-t border-white/5 flex justify-end">
+                                    <div class="text-right">
+                                        <p class="text-sm text-white/20 uppercase mb-3 italic">Animations</p>
+                                        <p class="text-base text-white/50 font-mono">Framer Motion, GSAP, Canvas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COLUMN 3: INFRA & SYSTEMES (The Shell) -->
+                        <div class="bg-white/[0.02] border border-white/5 rounded-[32px] p-8 md:p-12 space-y-8 backdrop-blur-md group hover:border-accent-violet/30 transition-colors">
+                            <div class="flex justify-between items-center text-accent-violet">
+                                <h4 class="text-base font-black uppercase tracking-widest">Infrastructures</h4>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </div>
+                            <div class="space-y-8">
+                                <div class="bg-accent-violet/5 border border-accent-violet/10 p-6 rounded-xl">
+                                    <p class="text-sm text-accent-violet uppercase mb-3 font-black">Virtualisation</p>
+                                    <p class="text-base text-white/70 italic leading-snug">Proxmox VE, VMware ESXi, VmWare Workstation.</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white/30 uppercase mb-4">Systèmes AD & Linux</p>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">Active Directory</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">GPO / LDAP</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold border border-white/5">DNS</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <p class="text-sm text-white/30 uppercase">DevOps & Cloud</p>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2 bg-white/10 rounded text-sm font-black text-white">Docker</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">Cloudflare R2</span>
+                                        <span class="px-4 py-2 bg-white/5 rounded text-sm font-bold">GitHub Actions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COLUMN 4: DATA & TOOLS (The Brain) -->
+                        <div class="bg-white/[0.02] border border-white/5 rounded-[32px] p-8 md:p-12 space-y-8 backdrop-blur-md group hover:border-white/20 transition-colors">
+                            <div class="flex justify-between items-center text-white/50">
+                                <h4 class="text-base font-black uppercase tracking-widest text-white/80">Data Intelligence</h4>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4"></path></svg>
+                            </div>
+                            <div class="space-y-8">
+                                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                                    <div class="absolute inset-0 bg-accent-violet/10 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></div>
+                                    <div class="relative z-10 space-y-6">
+                                        <div>
+                                            <p class="text-sm text-white/30 uppercase mb-3">Databases</p>
+                                            <p class="text-base font-bold italic">PostgreSQL, SQLite, Supabase Realtime.</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-white/30 uppercase mb-3">Backend Logic</p>
+                                            <p class="text-base text-white/70 font-mono">Drizzle ORM, RLS Security, BullMQ + Redis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="p-6 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <p class="text-sm text-white/20 uppercase mb-2">Qualité</p>
+                                        <p class="text-base font-bold">Biome</p>
+                                        <p class="text-base font-bold">Playwright</p>
+                                    </div>
+                                    <div class="p-6 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <p class="text-sm text-white/20 uppercase mb-2">IDEs</p>
+                                        <p class="text-base font-bold">VSCode</p>
+                                        <p class="text-base font-bold">PyCharm</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 pt-6 text-sm font-black italic text-accent-violet">
+                                    <span class="tracking-widest">#NETWORK_ALCHEMIST</span>
+                                    <span class="w-full h-[1px] bg-accent-violet/20"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Timeline -->
+            <section id="experience" class="py-32 px-8 bg-[#070707]">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-24">
+                        <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Parcours</h2>
+                        <h3 class="text-5xl font-light">Expériences <span class="text-white/30">& Formation</span>.</h3>
+                    </div>
+
+                    <div class="space-y-12">
+                        <div class="relative flex gap-12 group reveal-up-trigger">
+                            <div class="w-24 shrink-0 text-white/20 font-black text-4xl group-hover:text-accent-violet transition-colors">24</div>
+                            <div class="flex-grow pb-12 border-b border-white/5 space-y-4">
+                                <h4 class="text-2xl font-semibold italic">BUT Réseaux & Télécommunications</h4>
+                                <p class="text-white/40 italic">IUT1 de Grenoble • En cours</p>
+                                <p class="max-w-2xl text-white/60">Spécialisation en configuration réseau, virtualisation et cybersécurité.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex gap-12 group reveal-up-trigger">
+                            <div class="w-24 shrink-0 text-white/20 font-black text-4xl group-hover:text-accent-violet transition-colors">23</div>
+                            <div class="flex-grow pb-12 border-b border-white/5 space-y-4">
+                                <h4 class="text-2xl font-semibold italic">Copywriter Freelance</h4>
+                                <p class="text-white/40 italic">Jaillans • 6 mois</p>
+                                <p class="max-w-2xl text-white/60">Rédaction de contenus marketing et création de campagnes publicitaires.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-2 text-center md:text-left">
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
+                        <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center md:text-right">
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
+                        <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] uppercase tracking-[0.4em] text-white/20">
+                    <p>© 2026 ALEXIS FILS-AIMÉ</p>
+                    <div class="flex gap-8 font-black">
+                        <a href="https://www.linkedin.com/in/alexis-filsaime" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/alexisfilsaime" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
