@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage : ImmoVision SaaS B2B | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="../index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="../index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="../projets.html" class="text-accent-violet">Projets</a>
+            <a href="../cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+            <a href="../about.html" class="hover:text-accent-violet transition-colors">À propos</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Project Hero -->
+            <section class="relative min-h-[80vh] flex flex-col justify-center px-8 md:px-24">
+                <div class="absolute inset-0 z-0">
+                    <img src="../public/img/projects/immovision-stage.png" class="w-full h-full object-cover opacity-20 grayscale" alt="ImmoVision Dashboard">
+                    <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+                </div>
+                
+                <div class="relative z-10 space-y-8 max-w-5xl">
+                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-violet font-black">Stage de Fin d'Études • 2026</span>
+                    <h1 class="text-5xl md:text-8xl font-black italic tracking-tighter leading-none">Développement <br><span class="text-accent-violet font-signature text-6xl md:text-[140px] not-italic">Full Stack</span> <br>SaaS ImmoVision</h1>
+                    <div class="flex flex-wrap gap-12 text-[10px] uppercase tracking-widest font-bold text-white/40 mt-12">
+                        <div><p class="mb-2 text-white/20">Entreprise</p><p>TORNG Ventures</p></div>
+                        <div><p class="mb-2 text-white/20">Rôle</p><p>Dev Full Stack</p></div>
+                        <div><p class="mb-2 text-white/20">Stack</p><p>Next.js • Supabase • IA</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Content -->
+            <section class="max-w-7xl mx-auto px-8 py-32 grid grid-cols-1 lg:grid-cols-3 gap-24">
+                
+                <!-- Main Content Column -->
+                <div class="lg:col-span-2 space-y-24">
+                    
+                    <!-- Context -->
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Le <span class="text-white/30">Contexte</span></h2>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            Les agents immobiliers perdent un temps précieux avec des photos de médiocre qualité. Les solutions de retouche classiques sont trop complexes et les photographes professionnels trop coûteux.
+                        </p>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            La mission au sein de TORNG Ventures était claire : développer <strong>ImmoVision</strong>, un SaaS dédié à la correction photo par Intelligence Artificielle. Le défi majeur était technique et éthique : concevoir une application capable de traiter des lots d'images en asynchrone tout en garantissant un "Fidelity Score", pour s'assurer que l'IA ne déforme pas de manière excessive la réalité du bien.
+                        </p>
+                    </div>
+
+                    <!-- Challenges / Solutions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Challenge Technique</h3>
+                            <p class="text-white/70 font-light text-sm">Gérer le traitement asynchrone de lots d'images lourdes, assurer l'isolation stricte des données utilisateurs, et intégrer des APIs IA complexes sans impacter la fluidité de l'interface.</p>
+                        </div>
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Solution Apportée</h3>
+                            <p class="text-white/70 font-light text-sm">Architecture distribuée avec Workers BullMQ + Redis, mise en place de politiques RLS via Supabase, et conception d'un pipeline complet en Next.js (App Router) et TypeScript.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mon Rôle / Execution -->
+                    <div class="space-y-12">
+                        <h2 class="text-4xl font-light italic">Processus <span class="text-white/30">& Exécution</span></h2>
+                        
+                        <div class="space-y-8 text-white/60 font-light">
+                            <div class="border-l border-accent-violet pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Frontend & UI Interactive</h4>
+                                <p class="text-sm">Développement total de la zone d'upload Drag & Drop (react-dropzone), intégration d'un Slider comparateur Avant/Après sur-mesure (touch mobile supporté). Refonte complète du design premium via Glassmorphism et Framer Motion.</p>
+                            </div>
+
+                            <div class="border-l border-white/20 pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Algorithmie & IA</h4>
+                                <p class="text-sm">Mise en place de l'algorithme "Fidelity Score" combinant pHash et SSIM pour évaluer automatiquement les altérations d'image post-IA (rejet si fidélité inférieure à 60%).</p>
+                            </div>
+
+                            <div class="border-l border-white/20 pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Architecture & Sécurité BDD</h4>
+                                <p class="text-sm">Conception du schéma de la base de données avec Drizzle ORM et PostgreSQL. Implémentation complète de la sécurité Row Level Security (RLS) sur Supabase pour garantir l'anonymat et l'isolation des agences.</p>
+                            </div>
+                        </div>
+
+                        <img src="../public/img/projects/immovision-stage.png" class="w-full rounded-[40px] border border-white/5 opacity-90 mt-12 shadow-2xl shadow-accent-violet/5" alt="Interface ImmoVision">
+                        <p class="text-white/50 italic text-sm text-center">Aperçu Landing Page B2B d'ImmoVision</p>
+                    </div>
+
+                    <!-- Bilan & Recul -->
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Bilan <span class="text-white/30">& Apprentissage</span></h2>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            Ce stage a marqué la transition entre mon socle de compétences académiques (HTML/CSS, SQL) et l'exigence d'une stack SaaS professionnelle en production. Des concepts théoriques vus en cours, tels que les bases de données et la cybersécurité, ont pris tout leur sens avec l'application de WebSockets, d'ORM type-safe (Drizzle) et de normes de sécurité strictes (RLS). Ce projet a fortement nourri ma passion pour les architectures logicielle modernes et la sécurité des systèmes en ligne.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Sticky Sidebar Column -->
+                <div class="space-y-12">
+                    <div class="sticky top-32 space-y-12">
+                        
+                        <div class="space-y-6 glass-card p-8 rounded-3xl">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">La Stack</h3>
+                            <ul class="space-y-4 text-sm text-white/50 font-light tracking-wide flex flex-col gap-1">
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Next.js / React</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> TypeScript</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Supabase / Drizzle ORM</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> BullMQ / Redis</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> Tailwind / Framer Motion</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> Stripe / Cloudflare R2</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Impact</h3>
+                            <p class="text-3xl font-black italic">SaaS <br><span class="text-sm font-normal text-white/30 not-italic uppercase tracking-widest">Produit fonctionnel</span></p>
+                        </div>
+
+                        <div class="pt-12">
+                            <a href="../projets.html" class="flex items-center gap-4 group">
+                                <span class="w-8 h-[1px] bg-white group-hover:w-12 transition-all"></span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-bold">Retour aux projets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Project Footer -->
+            <section class="py-32 px-8 border-t border-white/5 flex flex-col items-center text-center">
+                <span class="text-[10px] uppercase tracking-widest text-white/30 mb-8">Parcours Suite</span>
+                <a href="../cv.html" class="group">
+                    <h2 class="text-5xl md:text-8xl font-black italic tracking-tighter group-hover:text-accent-violet transition-colors">Découvrir <span class="text-white/20">mon profil</span></h2>
+                </a>
+            </section>
+
+             <!-- Footer -->
+             <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-2 text-center md:text-left">
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
+                        <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center md:text-right">
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
+                        <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] uppercase tracking-[0.4em] text-white/20">
+                    <p>© 2026 ALEXIS FILS-AIMÉ</p>
+                    <div class="flex gap-8 font-black">
+                        <a href="https://www.linkedin.com/in/alexis-filsaime" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/alexisfilsaime" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="../src/js/main.js"></script>
+</body>
+</html>
