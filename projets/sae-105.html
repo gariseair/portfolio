@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 1.05 : Outils Python | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="../index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="../index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="../projets.html" class="text-accent-violet">Projets</a>
+            <a href="../cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Project Hero -->
+            <section class="relative min-h-[80vh] flex flex-col justify-center px-8 md:px-24">
+                <div class="absolute inset-0 z-0 bg-accent-violet/5">
+                    <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+                </div>
+                
+                <div class="relative z-10 space-y-8 max-w-4xl">
+                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-violet font-black">SAÉ 1.05 • Développement Python</span>
+                    <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter leading-none">Exploitation <br><span class="text-accent-violet font-signature text-5xl md:text-[120px] not-italic">Data</span> & Code</h1>
+                    <div class="flex gap-12 text-[10px] uppercase tracking-widest font-bold text-white/40">
+                        <div><p class="mb-2 text-white/20">Année</p><p>2024</p></div>
+                        <div><p class="mb-2 text-white/20">Domaine</p><p>Dev Logiciel</p></div>
+                        <div><p class="mb-2 text-white/20">Langages</p><p>Python • Bash</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Content -->
+            <section class="max-w-7xl mx-auto px-8 py-32 grid md:grid-cols-3 gap-24">
+                <div class="md:col-span-2 space-y-24">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Objectifs <span class="text-white/30">clés</span></h2>
+                        <ul class="space-y-4 text-xl text-white/60 font-light list-none">
+                            <li class="flex gap-4">
+                                <span class="text-accent-violet">/</span>
+                                Analyser et filtrer des données issues d’un système d’information (emplois du temps ADE).
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent-violet">/</span>
+                                Développer des scripts robustes et automatisés pour le traitement de fichiers volumineux.
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent-violet">/</span>
+                                Générer des restitutions visuelles (Graphiques Matplotlib) et textuelles (Markdown).
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-12">
+                         <h2 class="text-4xl font-light italic">Démonstration <span class="text-white/30">Code</span></h2>
+                         <div class="rounded-[40px] border border-white/5 overflow-hidden bg-white/[0.02]">
+                             <video src="../public/img/projects/sae105code.mp4" class="w-full" autoplay loop muted></video>
+                         </div>
+                         <p class="text-white/50 italic text-sm text-center">Exécution du script principal de traitement de données.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Technique</h3>
+                            <p class="text-white/70 font-light">Utilisation intensive des bibliothèques standard Python et de scripts Bash pour l'orchestration des jobs.</p>
+                        </div>
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Workflow</h3>
+                            <p class="text-white/70 font-light">Gestion de versions via GitLab et développement sous PyCharm en respectant les conventions PEP8.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="sticky top-32 space-y-12">
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Livrables SI</h3>
+                            <ul class="space-y-4 text-sm text-white/40 font-light tracking-wide">
+                                <li>• Script projet.py optimisé</li>
+                                <li>• Suite de tests unitaires (Pytest)</li>
+                                <li>• Exports Markdown dynamiques</li>
+                                <li>• Graphiques d'analyse d'usage</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Apports</h3>
+                            <p class="text-3xl font-black italic">PROJET <br><span class="text-sm font-normal text-white/30 not-italic uppercase tracking-widest">Validé avec succès</span></p>
+                        </div>
+
+                        <div class="pt-12">
+                            <a href="../projets.html" class="flex items-center gap-4 group">
+                                <span class="w-8 h-[1px] bg-white group-hover:w-12 transition-all"></span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-bold">Retour aux projets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-12 border-t border-white/5 relative bg-dark">
+                <div class="max-w-[1600px] mx-auto px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="text-[10px] text-white/30 uppercase tracking-[0.4em] font-mono">
+                            Based in Grenoble, FR <br>
+                            Available Worldwide
+                        </div>
+                        
+                        <div class="flex gap-12">
+                            <a href="mailto:filsaimealexis@gmail.com" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">Contact</a>
+                            <a href="https://linkedin.com" target="_blank" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">LinkedIn</a>
+                            <a href="https://github.com" target="_blank" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">GitHub</a>
+                        </div>
+                        
+                        <div class="text-[10px] text-white/20 uppercase tracking-widest font-mono text-right">
+                            © 2026 ALEXIS FILS-AIMÉ <br>
+                            SYSTEM STATUS: ONLINE
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="../src/js/main.js"></script>
+</body>
+</html>
