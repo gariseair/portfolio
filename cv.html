@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV & Parcours | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050505',
+                        accent: {
+                            gold: '#D4AF37',
+                            violet: '#6a3dcc',
+                            orange: '#e69500'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        signature: ['Pinyon Script', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .timeline-dot { width: 12px; height: 12px; background: #6a3dcc; border-radius: 50%; box-shadow: 0 0 15px #6a3dcc; }
+        .timeline-line { width: 1px; background: linear-gradient(to bottom, #6a3dcc, transparent); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="projets.html" class="hover:text-accent-violet transition-colors">Projets</a>
+            <a href="cv.html" class="text-accent-violet">Parcours</a>
+            <a href="about.html" class="hover:text-accent-violet transition-colors">À propos</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero CV -->
+            <section class="relative pt-48 pb-32 px-8 flex flex-col items-center text-center">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-accent-violet/5 blur-[120px] pointer-events-none"></div>
+                <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-none italic">
+                    CURRICULUM <br><span class="text-accent-violet font-signature text-8xl md:text-[150px] not-italic">Vitae</span>
+                </h1>
+                <p class="text-xl text-white/40 max-w-2xl font-light">
+                    Exploration de mon parcours académique et professionnel, entre rigueur technique et vision stratégique.
+                </p>
+                <div class="mt-12">
+                     <a href="./public/SAE104__FILS-AIME_CV.odt" class="inline-flex items-center gap-4 border border-white/10 px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all group">
+                         <span class="text-[10px] uppercase tracking-[0.2em] font-bold">Télécharger le CV complet</span>
+                         <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                     </a>
+                </div>
+            </section>
+
+            <!-- Education & Experience Grid -->
+            <section class="max-w-7xl mx-auto px-8 py-32 grid md:grid-cols-2 gap-24">
+                <!-- Education -->
+                <div class="space-y-16">
+                    <div class="space-y-4">
+                        <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Formation</h2>
+                        <h3 class="text-4xl font-light italic">Cursus <span class="text-white/30">Académique</span></h3>
+                    </div>
+
+                    <div class="space-y-12 relative pl-8">
+                        <div class="absolute left-0 top-2 bottom-2 timeline-line"></div>
+                        
+                        <div class="relative reveal-up-trigger">
+                            <div class="absolute -left-[38px] top-2 timeline-dot"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">2024 — Présent</span>
+                            <h4 class="text-2xl font-semibold mt-2 italic">BUT Réseaux & Télécommunications</h4>
+                            <p class="text-white/40 text-sm">IUT1 de Grenoble</p>
+                            <p class="mt-4 text-white/60 font-light leading-relaxed">Spécialisation en administration système, sécurité des réseaux (VLANs, VPN) et infrastructures critiques.</p>
+                        </div>
+
+                        <div class="relative reveal-up-trigger">
+                            <div class="absolute -left-[38px] top-2 timeline-dot bg-white/20 shadow-none"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-white/20 font-bold">2024</span>
+                            <h4 class="text-2xl font-semibold mt-2 italic">Baccalauréat Général</h4>
+                            <p class="text-white/40 text-sm">Lycée du Dauphiné • Mention Bien</p>
+                            <p class="mt-4 text-white/60 font-light">Spécialités : Mathématiques, NSI (Numérique et Sciences Informatique).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="space-y-16">
+                    <div class="space-y-4">
+                        <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Professionnel</h2>
+                        <h3 class="text-4xl font-light italic">Expériences <span class="text-white/30">Clés</span></h3>
+                    </div>
+
+                    <div class="space-y-12 relative pl-8">
+                        <div class="absolute left-0 top-2 bottom-2 timeline-line"></div>
+
+                        <div class="relative reveal-up-trigger">
+                            <div class="absolute -left-[38px] top-2 timeline-dot"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-accent-violet font-bold">2023 — 2024</span>
+                            <h4 class="text-2xl font-semibold mt-2 italic">Copywriter Freelance</h4>
+                            <p class="text-white/40 text-sm">Fils-Aimé Alexis • Jaillans</p>
+                            <p class="mt-4 text-white/60 font-light leading-relaxed">Conception de stratégies de contenu marketing et rédaction publicitaire à fort impact.</p>
+                        </div>
+
+                        <div class="relative reveal-up-trigger">
+                            <div class="absolute -left-[38px] top-2 timeline-dot bg-white/20 shadow-none"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-white/20 font-bold">Mars 2024</span>
+                            <h4 class="text-2xl font-semibold mt-2 italic">Formateur Digital</h4>
+                            <p class="text-white/40 text-sm">Animation de sessions pédagogiques</p>
+                            <p class="mt-4 text-white/60 font-light">Accompagnement d'adultes sur les fondamentaux du copywriting et du marketing numérique.</p>
+                        </div>
+
+                        <div class="relative reveal-up-trigger">
+                            <div class="absolute -left-[38px] top-2 timeline-dot bg-white/20 shadow-none"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-white/20 font-bold">Jobs Étudiants</span>
+                            <h4 class="text-2xl font-semibold mt-2 italic">Services & Logistique</h4>
+                            <p class="text-white/40 text-sm">Hostun / Lyon</p>
+                            <p class="mt-4 text-white/60 font-light">Gestion de caisse, restauration rapide et garde d'enfants (Lyon).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Bento CV -->
+            <section class="py-32 px-8 bg-[#070707]">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-24 flex justify-between items-end">
+                        <div class="space-y-4">
+                            <h2 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Hard Skills</h2>
+                            <h3 class="text-5xl font-light italic">Maîtrise <span class="text-white/30">Technique</span></h3>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Networks Detail -->
+                        <div class="md:col-span-1 glass-card p-10 rounded-[40px] space-y-8 reveal-up-trigger">
+                            <h4 class="text-xl font-bold tracking-widest uppercase">Télécoms</h4>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>VLAN & Routing</span><span>85%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[85%] h-full bg-accent-violet"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>Virtualisation</span><span>80%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[80%] h-full bg-white/40"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>Cisco / Bash</span><span>70%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[70%] h-full bg-white/20"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Web Dev Detail -->
+                        <div class="md:col-span-1 glass-card p-10 rounded-[40px] space-y-8 reveal-up-trigger">
+                            <h4 class="text-xl font-bold tracking-widest uppercase">Web Dev</h4>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>HTML / CSS</span><span>90%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[90%] h-full bg-accent-violet"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>Python / SQL</span><span>80%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[80%] h-full bg-white/40"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>JS / React</span><span>70%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[70%] h-full bg-white/20"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Content & Marketing -->
+                         <div class="md:col-span-1 glass-card p-10 rounded-[40px] space-y-8 reveal-up-trigger">
+                            <h4 class="text-xl font-bold tracking-widest uppercase">Marketing</h4>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>Copywriting</span><span>95%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[95%] h-full bg-accent-violet"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>Vente / Funnels</span><span>90%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[90%] h-full bg-white/40"></div></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] tracking-widest uppercase"><span>SEO Content</span><span>80%</span></div>
+                                    <div class="w-full h-[2px] bg-white/5"><div class="w-[80%] h-full bg-white/20"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-2 text-center md:text-left">
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
+                        <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center md:text-right">
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
+                        <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] uppercase tracking-[0.4em] text-white/20">
+                    <p>© 2026 ALEXIS FILS-AIMÉ</p>
+                    <div class="flex gap-8 font-black">
+                        <a href="https://www.linkedin.com/in/alexis-filsaime" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/alexisfilsaime" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
