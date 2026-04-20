@@ -16,7 +16,7 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { dark: '#050505', accent: { violet: '#6a3dcc', blue: '#3b82f6' } },
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
                     fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
                 }
             }
@@ -25,7 +25,7 @@
     <style>
         body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
         .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
-        .tech-tag { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .tech-tag { background: rgba(106, 61, 204, 0.1); border: 1px solid rgba(106, 61, 204, 0.2); color: #8b5cf6; }
     </style>
 </head>
 <body class="overflow-x-hidden bg-dark">
@@ -50,15 +50,15 @@
             <!-- Project Hero -->
             <section class="relative min-h-[80vh] flex flex-col justify-center px-8 md:px-24">
                 <div class="absolute inset-0 z-0">
-                    <div class="absolute inset-0 bg-accent-blue/10 blur-[150px] rounded-full opacity-30"></div>
+                    <div class="absolute inset-0 bg-accent-violet/10 blur-[150px] rounded-full opacity-30"></div>
                     <!-- Network Illustration -->
                     <img src="../public/img/projects/sae303-network.png" class="w-full h-full object-cover opacity-20 grayscale" alt="Network Infrastructure Background">
                     <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
                 </div>
                 
                 <div class="relative z-10 space-y-8 max-w-5xl">
-                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-blue font-black">SAÉ 3.03 • Réseaux & Télécoms (BUT2)</span>
-                    <h1 class="text-5xl md:text-8xl font-black italic tracking-tighter leading-none">Infrastructure <br><span class="text-accent-blue font-signature text-6xl md:text-[140px] not-italic">Multi-sites</span></h1>
+                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-violet font-black">SAÉ 3.03 • Réseaux & Télécoms (BUT2)</span>
+                    <h1 class="text-5xl md:text-8xl font-black italic tracking-tighter leading-none">Infrastructure <br><span class="text-accent-violet font-signature text-6xl md:text-[140px] not-italic">Multi-sites</span></h1>
                     <div class="flex flex-wrap gap-12 text-[10px] uppercase tracking-widest font-bold text-white/40 mt-12">
                         <div><p class="mb-2 text-white/20">Système</p><p>Windows Server 2019</p></div>
                         <div><p class="mb-2 text-white/20">Firewall</p><p>OPNsense / NAT / IPSec</p></div>
@@ -90,7 +90,7 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/60 font-light">
                             <div class="glass-card p-8 rounded-3xl space-y-4">
-                                <h3 class="text-accent-blue font-bold tracking-widest uppercase text-xs">Site Principal (Site 1)</h3>
+                                <h3 class="text-accent-violet font-bold tracking-widest uppercase text-xs">Site Principal (Site 1)</h3>
                                 <ul class="text-sm space-y-2">
                                     <li>• LAN : 10.32.B.0/24</li>
                                     <li>• DMZ : 192.168.10.0/24</li>
@@ -99,7 +99,7 @@
                                 </ul>
                             </div>
                             <div class="glass-card p-8 rounded-3xl space-y-4">
-                                <h3 class="text-accent-blue font-bold tracking-widest uppercase text-xs">Site Secondaire (Site 2)</h3>
+                                <h3 class="text-accent-violet font-bold tracking-widest uppercase text-xs">Site Secondaire (Site 2)</h3>
                                 <ul class="text-sm space-y-2">
                                     <li>• LAN : 10.32.(100+B).0/24</li>
                                     <li>• DMZ : 192.168.20.0/24</li>
@@ -113,7 +113,7 @@
                         <div class="mt-12 group relative overflow-hidden rounded-[40px] border border-white/5 bg-white/5 p-2 flex items-center justify-center">
                             <img src="../public/img/projects/sae303-network.png" class="w-full rounded-[32px] opacity-80 group-hover:opacity-100 transition-opacity duration-700" alt="Architecture Réseau">
                         </div>
-                        <p class="text-white/50 italic text-sm text-center">Visualisation conceptuelle de l'interconnexion multi-sites</p>
+                        <p class="text-white/50 italic text-sm text-center">Visualisation de l'interconnexion multi-sites</p>
                     </div>
 
                     <!-- Security & Technical Implementation -->
@@ -121,7 +121,7 @@
                         <h2 class="text-4xl font-light italic">Sécurité <span class="text-white/30">& Services</span></h2>
                         
                         <div class="space-y-8 text-white/60 font-light">
-                            <div class="border-l-2 border-accent-blue pl-6 space-y-2">
+                            <div class="border-l-2 border-accent-violet pl-6 space-y-2">
                                 <h4 class="text-xl font-semibold text-white">VPN IPSec & OpenVPN MFA</h4>
                                 <p class="text-sm">Mise en place d'un tunnel de site à site pour la réplication AD sécurisée. Configuration de l'accès nomade avec authentification LDAP couplée à un OTP (MFA) via l'application Authy.</p>
                             </div>
@@ -144,7 +144,7 @@
                         <p class="text-lg text-white/60 leading-relaxed font-light">
                             Le défi majeur a été la configuration minutieuse des règles de pare-feu OPNsense pour autoriser les flux RPC/AD sans compromettre la sécurité de la DMZ. La validation a été effectuée par captures Wireshark démontrant l'authentification LDAP sécurisée.
                         </p>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-center text-xs font-bold uppercase tracking-widest text-accent-blue">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-center text-xs font-bold uppercase tracking-widest text-accent-violet">
                             <div class="glass-card py-6 rounded-2xl">VPN OK</div>
                             <div class="glass-card py-6 rounded-2xl">MFA OK</div>
                             <div class="glass-card py-6 rounded-2xl">REPL AD OK</div>
@@ -159,11 +159,11 @@
                     <div class="sticky top-32 space-y-12">
                         
                         <div class="space-y-6 glass-card p-8 rounded-3xl">
-                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-blue font-black">Stack Technique</h3>
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Stack Technique</h3>
                             <ul class="space-y-4 text-sm text-white/50 font-light tracking-wide flex flex-col gap-1">
-                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-blue"></span> OPNsense (Router/FW)</li>
-                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-blue"></span> Windows Server 2019</li>
-                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-blue"></span> Active Directory / DNS</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> OPNsense (Router/FW)</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Windows Server 2019</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Active Directory / DNS</li>
                                 <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> OpenVPN (UDP/MFA)</li>
                                 <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> LAPS / BitLocker</li>
                                 <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> Wireshark (Audit)</li>
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="space-y-6 border-l border-white/10 pl-8">
-                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-blue font-black">Statut</h3>
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Statut</h3>
                             <p class="text-3xl font-black italic">Opérationnel <br><span class="text-sm font-normal text-white/30 not-italic uppercase tracking-widest">Livrables 6, 7 & 8 Terminés</span></p>
                         </div>
 
@@ -189,11 +189,11 @@
             <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
                 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
                     <div class="space-y-2 text-center md:text-left">
-                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-blue font-black">Contact</p>
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
                         <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
                     </div>
                     <div class="flex flex-col gap-2 text-center md:text-right">
-                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-blue transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-blue underline font-light italic">filsaimealexis@gmail.com</a>
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
                         <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
                     </div>
                 </div>
