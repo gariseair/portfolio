@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+.env
+*.log
+backup_*/
+trash_*/
+*.mp4
+!public/img/projects/*.png
+!public/img/projects/*.jpg
+!public/img/projects/*.jpeg
+!public/img/projects/*.webp

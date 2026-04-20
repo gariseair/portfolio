@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Java Multi-User Chat System | ALEXIS FILS-AIMÉ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Pinyon+Script&family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { dark: '#050505', accent: { violet: '#6a3dcc' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], signature: ['Pinyon Script', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <div class="text-xl font-black tracking-tighter" id="nav-logo">
+            <a href="../index.html">A<span class="text-accent-violet">F</span>.</a>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] uppercase tracking-[0.4em] font-semibold" id="nav-links">
+            <a href="../index.html" class="hover:text-accent-violet transition-colors">Accueil</a>
+            <a href="../projets.html" class="text-accent-violet">Projets</a>
+            <a href="../cv.html" class="hover:text-accent-violet transition-colors">Parcours</a>
+            <a href="../about.html" class="hover:text-accent-violet transition-colors">À propos</a>
+        </div>
+        <div id="nav-cta">
+            <a href="mailto:filsaimealexis@gmail.com" class="border border-white/20 px-6 py-3 rounded-full text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Project Hero -->
+            <section class="relative min-h-[80vh] flex flex-col justify-center px-8 md:px-24">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-accent-violet/10 blur-[150px] rounded-full opacity-30"></div>
+                    <!-- Architecture diagram -->
+                    <img src="../public/img/projects/sae302-architecture.png" class="w-full h-full object-cover opacity-20 grayscale" alt="Java Chat System Architecture">
+                    <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+                </div>
+                
+                <div class="relative z-10 space-y-8 max-w-5xl">
+                    <span class="text-[10px] uppercase tracking-[0.8em] text-accent-violet font-black">SAÉ 3.02 • Applicom (BUT2)</span>
+                    <h1 class="text-5xl md:text-8xl font-black italic tracking-tighter leading-none">Java Multi-User <br><span class="text-accent-violet font-signature text-6xl md:text-[140px] not-italic">Chat System</span></h1>
+                    <div class="flex flex-wrap gap-12 text-[10px] uppercase tracking-widest font-bold text-white/40 mt-12">
+                        <div><p class="mb-2 text-white/20">Formation</p><p>IUT1 Grenoble</p></div>
+                        <div><p class="mb-2 text-white/20">Type</p><p>Client-Serveur</p></div>
+                        <div><p class="mb-2 text-white/20">Stack</p><p>Java 21 • JavaFX • JSON</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Content -->
+            <section class="max-w-7xl mx-auto px-8 py-32 grid grid-cols-1 lg:grid-cols-3 gap-24">
+                
+                <!-- Main Content Column -->
+                <div class="lg:col-span-2 space-y-24">
+                    
+                    <!-- Context -->
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Le <span class="text-white/30">Concept</span></h2>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            Dans le cadre de la SAÉ 3.02 "Applicom", la mission consistait à développer une application de messagerie instantanée robuste. Le système repose sur une architecture <strong>Client-Serveur</strong> orchestrée par un serveur console central et une application graphique JavaFX élégante.
+                        </p>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            L'application permet non seulement des échanges textuels classiques mais intègre également la gestion d'avatars, des salons de discussion publics et des conversations privées sécurisées par un annuaire de logins authentifiés côté serveur.
+                        </p>
+                    </div>
+
+                    <!-- Challenges / Solutions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Challenge Technique</h3>
+                            <p class="text-white/70 font-light text-sm">L'implémentation autonome d'un protocole d'échange basé sur des événements JSON sur Sockets, une technologie découverte et appliquée intégralement durant ce projet pour garantir une structure de données standardisée.</p>
+                        </div>
+                        <div class="glass-card p-10 rounded-[40px] space-y-4">
+                            <h3 class="text-[10px] uppercase tracking-widest font-black text-accent-violet">Solution Apportée</h3>
+                            <p class="text-white/70 font-light text-sm">Conception d'un middleware de gestion d'événements JSON permettant de sérialiser/désérialiser les messages, notifications de présence et changements d'états de manière fluide entre le serveur console et les clients graphiques.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mon Rôle / Execution -->
+                    <div class="space-y-12">
+                        <h2 class="text-4xl font-light italic">Architecture <span class="text-white/30">& Réseau</span></h2>
+                        
+                        <div class="space-y-8 text-white/60 font-light">
+                            <div class="border-l border-accent-violet pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Serveur Central (Orchestrateur)</h4>
+                                <p class="text-sm">Développement en Java du <code>ChatServer</code> gérant le multi-threading, l'authentification des utilisateurs via un annuaire persistant, et la diffusion sélective des messages selon les salons.</p>
+                            </div>
+
+                            <div class="border-l border-white/20 pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Interface Événementielle JavaFX</h4>
+                                <p class="text-sm">Conception d'une UI dynamique avec JavaFX 21, incluant la mise à jour en temps réel des listes de contacts, des notifications de messages non lus et un sélecteur d'avatars personnalisé.</p>
+                            </div>
+
+                            <div class="border-l border-white/20 pl-6 space-y-2">
+                                <h4 class="text-xl font-semibold text-white">Protocole JSON Standardisé</h4>
+                                <p class="text-sm">Mise en œuvre d'un protocole de communication robuste où chaque action (connexion, message, création de salon) est encapsulée dans un objet JSON, permettant une extension facile des fonctionnalités.</p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture Diagram -->
+                        <div class="mt-12 group relative overflow-hidden rounded-[40px] border border-white/5 bg-white/5 p-2 flex items-center justify-center">
+                            <img src="../public/img/projects/sae302-architecture.png" class="w-full rounded-[32px] opacity-80 group-hover:opacity-100 transition-opacity duration-700" alt="Schéma Architecture Java Chat">
+                        </div>
+                        <p class="text-white/50 italic text-sm text-center">Vue d’ensemble synthétique du flux de données Client-Serveur</p>
+                    </div>
+
+                    <!-- Bilan & Recul -->
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-light italic">Bilan <span class="text-white/30">& Recul</span></h2>
+                        <p class="text-lg text-white/60 leading-relaxed font-light">
+                            Ce projet a été une étape clé dans ma maîtrise de la Programmation Orientée Objet (POO) et de la gestion des événements réseau. L'utilisation du JDK 21 et de JavaFX m'a permis d'appréhender les standards modernes de développement logiciel industriel. La rigueur imposée par le versionnement Git (branche par fonctionnalité) a également renforcé ma méthodologie de travail en autonomie.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Sticky Sidebar Column -->
+                <div class="space-y-12">
+                    <div class="sticky top-32 space-y-12">
+                        
+                        <div class="space-y-6 glass-card p-8 rounded-3xl">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Détails Techniques</h3>
+                            <ul class="space-y-4 text-sm text-white/50 font-light tracking-wide flex flex-col gap-1">
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Java 21 / JavaFX 21</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> JSON (Jackson/Gson)</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-accent-violet"></span> Multi-threading / Sockets</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> Git Branching Strategy</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> IntelliJ IDEA</li>
+                                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-white/30"></span> JavaDoc / Documentation</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6 border-l border-white/10 pl-8">
+                            <h3 class="text-[10px] uppercase tracking-[0.6em] text-accent-violet font-black">Statut</h3>
+                            <p class="text-3xl font-black italic">Validé <br><span class="text-sm font-normal text-white/30 not-italic uppercase tracking-widest">Livrable Final Livré</span></p>
+                        </div>
+
+                        <div class="pt-12">
+                            <a href="../projets.html" class="flex items-center gap-4 group">
+                                <span class="w-8 h-[1px] bg-white group-hover:w-12 transition-all"></span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-bold">Retour aux projets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Project Footer -->
+            <section class="py-32 px-8 border-t border-white/5 flex flex-col items-center text-center">
+                <span class="text-[10px] uppercase tracking-widest text-white/30 mb-8">Parcours Suite</span>
+                <a href="../cv.html" class="group">
+                    <h2 class="text-5xl md:text-8xl font-black italic tracking-tighter group-hover:text-accent-violet transition-colors">Découvrir <span class="text-white/20">mon profil</span></h2>
+                </a>
+            </section>
+
+             <!-- Footer -->
+             <footer id="contact" class="py-12 px-8 border-t border-white/5 bg-dark">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-2 text-center md:text-left">
+                        <p class="text-[8px] uppercase tracking-[0.8em] text-accent-violet font-black">Contact</p>
+                        <p class="text-white/30 text-xs font-light italic">Grenoble · Worldwide</p>
+                    </div>
+                    <div class="flex flex-col gap-2 text-center md:text-right">
+                        <a href="mailto:filsaimealexis@gmail.com" class="text-lg md:text-xl hover:text-accent-violet transition-colors underline-offset-4 decoration-white/10 hover:decoration-accent-violet underline font-light italic">filsaimealexis@gmail.com</a>
+                        <p class="text-sm font-black tracking-widest text-white/20 uppercase">06 10 92 50 52</p>
+                    </div>
+                </div>
+                <div class="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] uppercase tracking-[0.4em] text-white/20">
+                    <p>© 2026 ALEXIS FILS-AIMÉ</p>
+                    <div class="flex gap-8 font-black">
+                        <a href="https://www.linkedin.com/in/alexis-filsaime" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/alexisfilsaime" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.28/bundled/lenis.min.js"></script>
+    <script src="../src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* Premium Artifacts for Alexis' Portfolio */
+
+:root {
+    --accent-violet: #6a3dcc;
+    --dark-bg: #050505;
+}
+
+html {
+    scroll-behavior: initial;
+}
+
+body {
+    background-color: var(--dark-bg);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.font-signature {
+    font-family: 'Pinyon Script', cursive;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* GSAP Reveal Helper */
+.reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Custom Cursor interactions */
+#cursor, #cursor-follower {
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.hero-bg-title {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+    color: transparent;
+}
+
+/* Responsive adjustment for Hero Signature */
+@media (max-width: 768px) {
+    .font-signature {
+        font-size: 4rem;
+        transform: translateY(20%) translateX(0);
+    }
+}
